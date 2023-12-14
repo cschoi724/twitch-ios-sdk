@@ -5,6 +5,7 @@
 //  Created by cschoi on 12/13/23.
 //
 
+import TwitchCommon
 import Foundation
 
 public protocol TwitchChatService {

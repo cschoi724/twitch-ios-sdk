@@ -5,10 +5,10 @@
 //  Created by cschoi on 2023/03/03.
 //
 
-import Alamofire
 import Foundation
 import UIKit
 import WebKit
+import TwitchCommon
 
 public protocol TwitchAuth {
     var delegate: TwitchAuthDelegate? { get set }

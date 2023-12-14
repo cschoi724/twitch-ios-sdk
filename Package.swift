@@ -3,14 +3,24 @@
 
 import PackageDescription
 
+// sdk-version:1.1.0
 let package = Package(
     name: "TwitchSDK",
-    platforms: [.iOS(.v13)],    
+    platforms: [.iOS(.v13)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "TwitchSDK",
-            targets: ["TwitchSDK"]),
+            targets: ["TwitchAuth", "TwitchChat", "TwitchCommon"]),
+        .library(
+            name: "TwitchAuth",
+            targets: ["TwitchAuth"]),
+        .library(
+            name: "TwitchChat",
+            targets: ["TwitchChat"]),
+        .library(
+            name: "TwitchCommon",
+            targets: ["TwitchCommon"])
     ],
     dependencies: [
         .package(url: "https://github.com/daltoniam/Starscream.git", .upToNextMajor(from: "4.0.6")),
@@ -20,16 +30,28 @@ let package = Package(
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "TwitchSDK",
+            name: "TwitchCommon",
             dependencies: [
-                "Starscream",
-                "Alamofire"
-            ],
-            path: "Sources"
+                .product(name: "Alamofire", package: "Alamofire"),
+                .product(name: "Starscream", package: "Starscream")
+            ]
         ),
-        
-        .testTarget(
-            name: "TwitchSDKTests",
-            dependencies: ["TwitchSDK"]),
+        .target(
+            name: "TwitchAuth",
+            dependencies: [
+                .product(name: "Alamofire", package: "Alamofire"),
+                .target(name: "TwitchCommon")
+            ]
+        ),
+        .target(
+            name: "TwitchChat",
+            dependencies: [
+                .target(name: "TwitchCommon"),
+                .product(name: "Alamofire", package: "Alamofire")
+            ]
+        )
+    ],
+    swiftLanguageVersions: [
+        .v5
     ]
 )

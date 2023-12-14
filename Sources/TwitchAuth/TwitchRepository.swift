@@ -6,6 +6,7 @@
 //
 
 import Alamofire
+import TwitchCommon
 import Foundation
 
 protocol TwitchRepository {
