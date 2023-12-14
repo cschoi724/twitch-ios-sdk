@@ -17,12 +17,12 @@ public protocol TwitchAuthConfigration {
     var state: String { get }
 }
 
-struct DefaultTwitchConfigration: TwitchAuthConfigration {
-    let authURL: String
-    let clientId: String
-    let secretKey: String
-    let redirectUri: String
-    let forceVerify: String
-    let scope: String
-    let state: String
+public struct DefaultTwitchConfigration: TwitchAuthConfigration {
+    public let authURL: String
+    public let clientId: String
+    public let secretKey: String
+    public let redirectUri: String
+    public let forceVerify: String
+    public let scope: String
+    public let state: String
 }
