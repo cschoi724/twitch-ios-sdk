@@ -25,4 +25,14 @@ public struct DefaultTwitchConfigration: TwitchAuthConfigration {
     public let forceVerify: String
     public let scope: String
     public let state: String
+    
+    public init(authURL: String, clientId: String, secretKey: String, redirectUri: String, forceVerify: String, scope: String, state: String) {
+        self.authURL = authURL
+        self.clientId = clientId
+        self.secretKey = secretKey
+        self.redirectUri = redirectUri
+        self.forceVerify = forceVerify
+        self.scope = scope
+        self.state = state
+    }
 }
