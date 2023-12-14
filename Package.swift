@@ -11,16 +11,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "TwitchSDK",
-            targets: ["TwitchAuth", "TwitchChat", "TwitchCommon"]),
-        .library(
-            name: "TwitchAuth",
-            targets: ["TwitchAuth"]),
-        .library(
-            name: "TwitchChat",
-            targets: ["TwitchChat"]),
-        .library(
-            name: "TwitchCommon",
-            targets: ["TwitchCommon"])
+            targets: ["TwitchAuth", "TwitchChat", "TwitchCommon"])
     ],
     dependencies: [
         .package(url: "https://github.com/daltoniam/Starscream.git", .upToNextMajor(from: "4.0.6")),
